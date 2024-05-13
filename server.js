@@ -7,9 +7,9 @@ app.use(cors({
     origin: '*'
 }))
 
-app.get('/token-metadata/:', async(req, res) => {
+app.get('/token-metadata/:tokenAddress', async(req, res) => {
     const fetch = await import('node-fetch'); 
-    const tokenAddress = req.query.tokenAddress;
+    const tokenAddress = req.params.tokenAddress;
     console.log(tokenAddress)
     const url=` https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?address=${tokenAddress}`
     const response = await fetch(
