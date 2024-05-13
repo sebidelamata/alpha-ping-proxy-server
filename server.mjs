@@ -13,7 +13,7 @@ app.use(cors({
 app.get('/token-metadata/:tokenAddress', async(req, res) => {
     const tokenAddress = req.params.tokenAddress;
     console.log(tokenAddress)
-    const url=` https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?address=${tokenAddress}`
+    const url=`https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?address=${tokenAddress}`
     const response = await fetch(
         url,
         {
