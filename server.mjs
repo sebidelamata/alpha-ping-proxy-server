@@ -1,8 +1,10 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-require('dotenv').config();
 import fetch from 'node-fetch';
+import express from 'express';
+const app = express();
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 app.use(cors({
     origin: '*'
