@@ -1,14 +1,15 @@
 const express = require('express')
 const app = express()
-const fetch = require('node-fetch')
 const cors = require('cors')
 require('dotenv').config();
 
 app.use(cors())
 
 app.get('/token-metadata/', async(req, res) => {
-    const response = await 
-    response = await fetch(
+    const fetch = await import('node-fetch'); 
+    const tokenAddress = req.query.tokenAddress;
+    const url=` https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?address=${tokenAddress}`
+    const response = await fetch(
         url,
         {
         headers: {
@@ -17,5 +18,12 @@ app.get('/token-metadata/', async(req, res) => {
         }
     }
     )
-    response = await response.json();
+    res.json(
+        await response.json()
+    )
 })
+
+const PORT = process.env.PORT || 443;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
