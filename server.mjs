@@ -18,13 +18,13 @@ app.get('/token-metadata/:tokenAddress', async(req, res) => {
         url,
         {
         headers: {
-        'Accepts': 'application/json',
         "X-CMC_PRO_API_KEY": process.env.COINMARKETCAP_API_KEY
         }
     }
     ) 
+    console.log(response)
     res.json(
-        await response.data.json()
+        await response.json()
     )
 })
 
