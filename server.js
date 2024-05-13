@@ -20,7 +20,7 @@ app.get('/token-metadata/:tokenAddress', async(req, res) => {
         "X-CMC_PRO_API_KEY": process.env.COINMARKETCAP_API_KEY
         }
     }
-    )
+    ) 
     res.json(
         await response.json()
     )
