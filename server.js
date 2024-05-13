@@ -7,7 +7,7 @@ app.use(cors({
     origin: '*'
 }))
 
-app.get('/token-metadata/', async(req, res) => {
+app.get('/token-metadata/:', async(req, res) => {
     const fetch = await import('node-fetch'); 
     const tokenAddress = req.query.tokenAddress;
     console.log(tokenAddress)
