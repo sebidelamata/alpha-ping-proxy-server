@@ -2,13 +2,13 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 require('dotenv').config();
+const fetch = require('node-fetch'); 
 
 app.use(cors({
     origin: '*'
 }))
 
 app.get('/token-metadata/:tokenAddress', async(req, res) => {
-    const fetch = await import('node-fetch'); 
     const tokenAddress = req.params.tokenAddress;
     console.log(tokenAddress)
     const url=` https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?address=${tokenAddress}`
