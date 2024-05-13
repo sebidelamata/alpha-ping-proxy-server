@@ -22,7 +22,7 @@ app.get('/token-metadata/:tokenAddress', async(req, res) => {
         }
     }
     ) 
-    console.log(response)
+    console.log(response.data)
     res.json(
         await response.json()
     )
